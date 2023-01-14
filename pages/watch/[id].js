@@ -1,14 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../comps/Navbar";
 import axios from "axios";
 import animedetails from "../details/[id]";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
-const watch = ({ link }) => {
+const watch = ({ info }) => {
   const router = useRouter();
   const { id } = router.query;
-
+  const dmm =() =>{
+    alert('so zebi mt9drch tchof prev ep t3 ep 1');
+}
+ 
   return (
+
+    
+  
     <>
     <link
         rel="stylesheet"
@@ -20,23 +26,23 @@ const watch = ({ link }) => {
       <div className="watch-container">
         <div className="owo">
           <div className="epss">
-            {Array(15)
-              .fill(1)
+            {Array(info[3])
+              .fill(info[3])
               .map((el, i) => (
                 <p>
-                  <a>{i+1 + "الحلقة"}</a>
+                  <a>{i + "الحلقة"}</a>
                 </p>
               ))}
           </div>
 
           <div className="epo">
-            <h1>Bleach الحلقة 7</h1>
+            <h1>{info[2] + "  :"} {info[1]} الحلقة </h1>
 
-            <iframe src={link} allowfullscreen="true"></iframe>
+            <iframe src={info[0]} allowfullscreen="true"></iframe>
             <div className="next-prev">
-              <a href="">الحلقة الموالية</a>
-              <a href="">حمّل الحلقة </a>
-              <a href="">الحلقة السابقة</a>
+              <a href={`http://localhost:3000/watch/query=${info[2]}&episode=${parseInt(info[1])-1}`}> <i class="uil uil-arrow-left"></i>  الحلقة السابقة </a>
+              <a href=""> <i class="uil uil-arrow-to-bottom"></i> حمّل الحلقة </a>
+              <a href={`http://localhost:3000/watch/query=${info[2]}&episode=${parseInt(info[1])+1}`}>الحلقة الموالية <i class="uil uil-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -64,12 +70,20 @@ export async function getServerSideProps({ params }) {
   const response = await axios.get(
     `http://localhost:5050/api/watch/anime?${id}`
   );
-  const link = response.data.data;
+  const link = response.data.data.watch_link;
+  const episode = response.data.data.episode;
+  const name = response.data.data.anime_name;
+  const res = await axios.get(
+    `http://localhost:5050/api/search/anime?query=${name}`
+  );
+  const eps = res.data.data.data[0].episodes;
+  const info = [link,episode,name, eps]
+
   return {
     // returning the data here and setting a key id so it fetches whenever the id changes
     props: {
       key: id,
-      link,
+      info,
     },
   };
 }
