@@ -559,18 +559,22 @@ h1{
 .epss a{
   padding-top: 5px;
 }
+.epss p{
+}
 .epss{
   margin-top: 120px;
   padding: 50px;
+  padding-top: 0;
   justify-content: center;
-  display: flex;
+  display: grid;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y:scroll;
   overflow-x: visible;
   text-align: center;
+  place-items: center;
   width: 200px;
   color: #fff;
-  height: 350px;
+  max-height: 350px;
   background-color:#1b1c21;
   border-radius: 8px;
 

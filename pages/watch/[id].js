@@ -26,11 +26,11 @@ const watch = ({ info }) => {
       <div className="watch-container">
         <div className="owo">
           <div className="epss">
-            {Array(info[3])
-              .fill(info[3])
+            {Array(366)
+              .fill()
               .map((el, i) => (
                 <p>
-                  <a>{i + "الحلقة"}</a>
+                  <a>{i+1 +'   ' +"الحلقة"}</a>
                 </p>
               ))}
           </div>
