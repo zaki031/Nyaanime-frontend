@@ -30,7 +30,7 @@ const watch = ({ info }) => {
               .fill()
               .map((el, i) => (
                 <p>
-                  <a>{i+1 +'   ' +"الحلقة"}</a>
+                  <a href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a>
                 </p>
               ))}
           </div>

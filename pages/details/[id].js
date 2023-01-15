@@ -1,5 +1,4 @@
 import Image from "next/image";
-import banner from "../../public/animedetails.jpg";
 import Navbar from "../../comps/Navbar";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

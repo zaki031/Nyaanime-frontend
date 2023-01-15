@@ -1,4 +1,3 @@
-import banner from '../public/footer.png'
 
 const Footer = () => {
     return ( 
