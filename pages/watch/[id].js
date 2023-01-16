@@ -4,65 +4,94 @@ import axios from "axios";
 import animedetails from "../details/[id]";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
-import Head from 'next/head'
+import Head from "next/head";
 
 const watch = ({ info }) => {
   const router = useRouter();
   const { id } = router.query;
-  const dmm =() =>{
-    alert('so zebi mt9drch tchof prev ep t3 ep 1');
-}
- 
-  return (
+  const dmm = () => {
+    alert("so zebi mt9drch tchof prev ep t3 ep 1");
+  };
 
-    
-  
+  return (
     <>
-    <Head>
-      <title>{info[2] + ': '+ info[1] + '  الحلقة'}</title></Head>
-    <link
+      <Head>
+        <title>{info[2] + ": " + info[1] + "  الحلقة"}</title>
+      </Head>
+      <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
       ></link>
       <Navbar />
-      <br /><br />
+      <br />
+      <br />
 
       <div className="watch-container">
         <div className="owo">
           <div className="epss">
-            {Array(366)
+            {Array(info[3])
               .fill()
               .map((el, i) => (
                 <div>
-                  {i+1!=info[1] ? <a className="oth_eps" href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a> : <a className="cur_ep" href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a> }
-                  
+                  {i + 1 != info[1] ? (
+                    <a
+                      className="oth_eps"
+                      href={`http://localhost:3000/watch/query=%20${
+                        info[2]
+                      }%20&episode=${i + 1}`}
+                    >
+                      {i + 1 + "   " + "الحلقة"}
+                    </a>
+                  ) : (
+                    <a
+                      className="cur_ep"
+                      href={`http://localhost:3000/watch/query=%20${
+                        info[2]
+                      }%20&episode=${i + 1}`}
+                    >
+                      {i + 1 + "   " + "الحلقة"}
+                    </a>
+                  )}
                 </div>
               ))}
           </div>
 
           <div className="epo">
-            <h1>{info[2] + "  :"} {info[1]} الحلقة </h1>
+            <h1>
+              {info[2] + "  :"} {info[1]} الحلقة{" "}
+            </h1>
 
             <iframe src={info[0]} allowfullscreen="true"></iframe>
             <div className="next-prev">
-              <a href={`http://localhost:3000/watch/query=${info[2]}&episode=${parseInt(info[1])-1}`}> <i class="uil uil-arrow-left"></i>  الحلقة السابقة </a>
-              <a href=""> <i class="uil uil-arrow-to-bottom"></i> حمّل الحلقة </a>
-              <a href={`http://localhost:3000/watch/query=${info[2]}&episode=${parseInt(info[1])+1}`}>الحلقة الموالية <i class="uil uil-arrow-right"></i></a>
+              <a
+                href={`http://localhost:3000/watch/query=${info[2]}&episode=${
+                  parseInt(info[1]) - 1
+                }`}
+              >
+                {" "}
+                <i class="uil uil-arrow-left"></i> الحلقة السابقة{" "}
+              </a>
+              <a href="">
+                {" "}
+                <i class="uil uil-arrow-to-bottom"></i> حمّل الحلقة{" "}
+              </a>
+              <a
+                href={`http://localhost:3000/watch/query=${info[2]}&episode=${
+                  parseInt(info[1]) + 1
+                }`}
+              >
+                الحلقة الموالية <i class="uil uil-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
         <br />
-
-        
       </div>
       <br />
-     
-      
-        <section>
-      
-                  <Footer />
-             
-        </section>
+
+      <section>
+        <Footer />
+      </section>
     </>
   );
 };
@@ -82,7 +111,7 @@ export async function getServerSideProps({ params }) {
     `http://localhost:5050/api/search/anime?query=${name}`
   );
   const eps = res.data.data.data[0].episodes;
-  const info = [link,episode,name, eps]
+  const info = [link, episode, name, eps];
 
   return {
     // returning the data here and setting a key id so it fetches whenever the id changes

@@ -122,7 +122,7 @@ const animedetails = ({ anime }) => {
                     <h3>: التصنيفات</h3>
                   </div>
                   <div className="rank">
-                    <a>#44</a>
+                    <a>#{anime[6]}</a>
                     <h3>: الترتيب </h3>
                   </div>
                   <div className="source">
@@ -185,6 +185,7 @@ export async function getServerSideProps({ params }) {
     data.episodes,
     data.genres,
     data.synopsis,
+    data.rank
   ];
   console.log("data is" + response);
   return {
