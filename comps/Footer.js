@@ -11,15 +11,14 @@ const Footer = () => {
                 <ul>
 
                     <li><a href="https://www.instagram.com/nyaanime.app/"><i className="uil uil-instagram"></i></a></li>
-                    <li><a href=""><i className="uil uil-github"></i></a></li>
+                    <li><a href="https://github.com/zaki031/Nyaanime-frontend"><i className="uil uil-github"></i></a></li>
                 </ul>
             </div>
             <div className="footer-links">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/watchlist">Watch list</a></li>
-                    <li><a href="/top">Top animes</a></li>
-                    <li><a href="/random">Random</a></li>
+                    <li><a href="/">الصفحة الرئيسية</a></li>
+                    <li><a href="/watchlist">قائمة المشاهدة</a></li>
+                    <li><a href="/random">أنمي عشوائي</a></li>
                 </ul>
                 <p>
 نحن لا نخزّن أي فيديوهات في قواعد البيانات الخاصة بنا كل الفيديوهات مجمعة من مواقع طرف ثالث
