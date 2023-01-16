@@ -29,9 +29,10 @@ const watch = ({ info }) => {
             {Array(366)
               .fill()
               .map((el, i) => (
-                <p>
-                  <a href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a>
-                </p>
+                <div>
+                  {i+1!=info[1] ? <a className="oth_eps" href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a> : <a className="cur_ep" href={`http://localhost:3000/watch/query=%20${info[2]}%20&episode=${i+1}`}>{i+1 +'   ' +"الحلقة"}</a> }
+                  
+                </div>
               ))}
           </div>
 
