@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../comps/Footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -94,6 +95,9 @@ export default function Home() {
   
   return (
     <>
+    <Head>
+      <title>Nyaanime</title>
+    </Head>
      
       <link
         rel="stylesheet"

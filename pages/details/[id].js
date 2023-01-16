@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Footer from "../../comps/Footer";
 import ReactPlayer from "react-player";
+import Head from 'next/head'
+
 
 const animedetails = ({ anime }) => {
 
@@ -69,6 +71,7 @@ const animedetails = ({ anime }) => {
 
   return (
     <>
+    <Head><title>{anime[0]}</title></Head>
      <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"

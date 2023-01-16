@@ -4,6 +4,8 @@ import axios from "axios";
 import animedetails from "../details/[id]";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
+import Head from 'next/head'
+
 const watch = ({ info }) => {
   const router = useRouter();
   const { id } = router.query;
@@ -16,6 +18,8 @@ const watch = ({ info }) => {
     
   
     <>
+    <Head>
+      <title>{info[2] + ': '+ info[1] + '  الحلقة'}</title></Head>
     <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"

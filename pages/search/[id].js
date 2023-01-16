@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
+import Head from 'next/head'
+
 
 const search = ({ anime }) => {
   const router = useRouter();
@@ -52,6 +54,9 @@ const search = ({ anime }) => {
     return ( 
       
         <>
+        <Head>
+          <title>{id +" : البحث عن "}</title>
+        </Head>
          <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
