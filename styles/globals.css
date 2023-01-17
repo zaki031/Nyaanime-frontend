@@ -328,12 +328,23 @@ hr{
 
 .phone-input{
   display: none;
-  padding-right: 20px;
-  background-color:#1b1c21 ;
-  width: 200px;
+  margin-top: 4px;
+  width: 300px;
+  background-color: #1b1c21;
+  border-radius: 5px;
+  border-color: #a888ff;
+  padding-left: 20px;
+  height: 25px;
+  color: #fff;
+  text-align: center;
+
+  
+  margin: auto;
 }
 .input-container{
   text-align: center;
+  place-content: center;
+  place-items: center;
 }
 
 
@@ -506,33 +517,7 @@ hr{
 
 
 
-@media(max-width : 450px){
 
-  .links{
-    display: none;
-  }
-  .navbar{
-
-    justify-content: center;
-    align-items: center;
-  }
-  .navbar input{
-    width: 200px;
-  }
-  .banner{
-    width: 300px;
-    height: 250px;
-  }
-  .footer-links{
-    margin-right: 30px;
-  }
-  .foto{
-    height: 500px;
-  }
-  .phone-input{
-    display: block;
-  }
-}
 .owo{
   margin-top: -80px;
   display: flex;
@@ -645,6 +630,26 @@ iframe{
   text-align: center;
   margin-bottom: 10px;
 }
+.phone-btn{
+  width: 200px;
+  color: #1b1c21;
+  background-color:#A888FF;
+  padding: 5px;
+  margin-right: 10px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10px;
+  margin: auto;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 15px;
+  display: none;
+
+
+}
+.phone-btn:hover{
+  opacity: 0.9;
+}
 .navbar a{
   color: #1b1c21;
 }
@@ -682,4 +687,51 @@ iframe{
 .cur_ep:hover{
   background-color:#a888ff;
   color: #1b1c21;
+}
+
+@media(max-width : 450px){
+  iframe{
+    width: 400px;
+  }
+
+  .owo{display: block;}
+  .phone-btn{display: block;}
+
+  .links{
+    display: none;
+  }
+  .navbar{
+
+    justify-content: center;
+    align-items: center;
+  }
+  .phone-input{
+    margin-top: 80px;
+  }
+  .input-container{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+  }
+  .search-btn,
+  .navbar input{
+    display: none;
+  }
+  .banner{
+    width: 300px;
+    height: 250px;
+  }
+ 
+  .foto{
+    height: 500px;
+  }
+  .phone-input{
+    display: block;
+  }
+
+  .footer-links{
+    font-size: 13px;
+  }
+  .footer p{font-size: 10px;}
 }

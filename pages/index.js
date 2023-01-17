@@ -93,6 +93,9 @@ export default function Home() {
   };
 
   
+  
+  const [search, SetSearch] = useState("");
+
   return (
     <>
     <Head>
@@ -106,6 +109,7 @@ export default function Home() {
       <Navbar />
 
       <br />
+  
 
       <div className="input-container">
        
@@ -114,7 +118,12 @@ export default function Home() {
           className="phone-input"
           placeholder="ابحث عن الانمي اللذي تود مشاهدته"
         />
+            <a className="phone-btn" href={"/search/" + search}>
+              البحث
+            </a>
+   
       </div>
+      
 
       <section className="Latest">
         <h1>اخر الحلقات المضافة</h1>

@@ -28,13 +28,13 @@ const Navbar = () => {
           </div>
           <div className="search-bar">
             <a className="search-btn" href={"/search/" + search}>
-              Search
+              البحث
             </a>
             <input
               type="text"
               value={search}
               onChange={(event) => SetSearch(event.target.value)}
-              placeholder="Search any anime you want NYAN"
+              placeholder="ابحث عن الأنمي الذي توّد مشاهدته"
             />
           </div>
           <div className="links">
