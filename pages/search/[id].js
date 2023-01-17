@@ -6,10 +6,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
+import { useState } from "react";
 import Head from 'next/head'
 
 
 const search = ({ anime }) => {
+  const [hentai,setHentai] = useState(false)
+
   const router = useRouter();
   const { id } = router.query;
     console.log(anime)
@@ -71,10 +74,14 @@ const search = ({ anime }) => {
           
 
                   <Slider {...settings}>
+                    
           {anime.map((item, index) => (
                 <div className="card" key={index}>
                   <div className="card-hover">
-                    <a href={"/details/" + item.title} key={item.title}>
+                  {item.genres.map((genre)=>{
+              genre.name=='Hentai'?console.log("zebi"):null})}
+          
+                      {hentai==false?<a href={"/details/" + item.title} key={item.title}>
                       <Image
                         src={item.images.jpg.image_url}
                         className="foto"
@@ -82,13 +89,17 @@ const search = ({ anime }) => {
                         width="200"
                         height="350"
                       />
-                    </a>
+
+                    </a>:null}
+                    
+                    
                   </div>
                   <h2>{item.title}</h2>
 
+
                 </div>
-              ))
-            }
+              ))}
+               
         </Slider>
 
                   </div>
