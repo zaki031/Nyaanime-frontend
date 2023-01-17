@@ -116,6 +116,8 @@ export default function Home() {
         <input
           type="text"
           className="phone-input"
+          value={search}
+          onChange={(event) => SetSearch(event.target.value)}
           placeholder="ابحث عن الانمي اللذي تود مشاهدته"
         />
             <a className="phone-btn" href={"/search/" + search}>
