@@ -13,9 +13,25 @@ import Head from "next/head";
 
 const animedetails = ({ anime }) => {
   const [season, setSeason] = useState([])
+  const [status, setStatus] = useState([])
   useEffect(() => {
     if(anime[10]=='fall'){
-      setSeason('خريف')
+      setSeason(' خريف')
+    }
+    if(anime[10]=='summer'){
+      setSeason(' صيف')
+    }
+    if(anime[10]=='spring'){
+      setSeason(' ربيع')
+    }
+    if(anime[10]=='winter'){
+      setSeason(' شتاء')
+    }
+    if(anime[8]=='Finished Airing'){
+      setStatus('منتهي')
+    }
+    if(anime[8] == 'Currently Airing'){
+      setStatus('مستمر')
     }
     console.log("Data is " + anime);
     console.log(anime[4]);
@@ -142,7 +158,7 @@ const animedetails = ({ anime }) => {
                     <h3>: النوع</h3>
                   </div>
                   <div className="status">
-                    <a>{anime[8]}</a>
+                    <a>{status}</a>
                     <h3>: الحالة</h3>
                   </div>
                   <div className="studio">
@@ -150,7 +166,7 @@ const animedetails = ({ anime }) => {
                     <h3>: الأستوديو</h3>
                   </div>
                      <div className="episodes">
-                    <a>{season + anime[11]}</a>
+                    <a>{season +'  '+ anime[11]}</a>
                     <h3>: الموسم</h3>
                   </div>
 
