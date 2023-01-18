@@ -482,10 +482,21 @@ hr{
   justify-items: center;
   align-items: center;
 }
+.scnd h3,
+.fst h3{
+  margin-top: 15px;
+}
 .fst{
   display: flex;
-  gap: 80px;
+  gap: 50px;
 }
+.scnd{
+  justify-content: center;
+  display: flex;
+  gap: 50px;
+}
+.status,
+.type,
 .season,
 .rank,
 .status,
@@ -630,6 +641,12 @@ iframe{
   text-align: center;
   margin-bottom: 10px;
 }
+.menu{
+  border-radius: 8px;
+  color: #A888FF;
+  display: none;
+  font-size: 30px;
+}
 .phone-btn{
   width: 200px;
   color: #1b1c21;
@@ -688,13 +705,24 @@ iframe{
   background-color:#a888ff;
   color: #1b1c21;
 }
+.menu:hover{
+  background-color:#A888FF;
+  color: #1b1c21;
+}
 
 @media(max-width : 450px){
   iframe{
     width: 400px;
   }
+  .foto:hover{
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
 
   .owo{display: block;}
+  
   .phone-btn{display: block;}
 
   .links{

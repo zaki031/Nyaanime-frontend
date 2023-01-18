@@ -9,14 +9,14 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Footer from "../../comps/Footer";
 import ReactPlayer from "react-player";
-import Head from 'next/head'
-
+import Head from "next/head";
 
 const animedetails = ({ anime }) => {
-
-
-
+  const [season, setSeason] = useState([])
   useEffect(() => {
+    if(anime[10]=='fall'){
+      setSeason('خريف')
+    }
     console.log("Data is " + anime);
     console.log(anime[4]);
 
@@ -71,8 +71,10 @@ const animedetails = ({ anime }) => {
 
   return (
     <>
-    <Head><title>{anime[0]}</title></Head>
-     <link
+      <Head>
+        <title>{anime[0]}</title>
+      </Head>
+      <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
       ></link>
@@ -134,6 +136,25 @@ const animedetails = ({ anime }) => {
                     <h3>: الحلقات</h3>
                   </div>
                 </div>
+                <div className="scnd">
+                <div className="type">
+                    <a>{anime[7]}</a>
+                    <h3>: النوع</h3>
+                  </div>
+                  <div className="status">
+                    <a>{anime[8]}</a>
+                    <h3>: الحالة</h3>
+                  </div>
+                  <div className="studio">
+                    <a>{anime[9]}</a>
+                    <h3>: الأستوديو</h3>
+                  </div>
+                     <div className="episodes">
+                    <a>{season + anime[11]}</a>
+                    <h3>: الموسم</h3>
+                  </div>
+
+                </div>
                 <br />
                 <br />
               </div>
@@ -145,9 +166,14 @@ const animedetails = ({ anime }) => {
                     .map((el, i) => (
                       <div className="card" key={i}>
                         <div className="card-hover">
-                          <a href={`/watch/query=${anime[0]}&episode=${i+1}`}>
-                          <Image src={anime[1]} className="eps-banner" width='200' height="300" alt={i} />
-
+                          <a href={`/watch/query=${anime[0]}&episode=${i + 1}`}>
+                            <Image
+                              src={anime[1]}
+                              className="eps-banner"
+                              width="200"
+                              height="300"
+                              alt={i}
+                            />
                           </a>
                         </div>
                         <h2>الحلقة : {i + 1}</h2>
@@ -160,11 +186,10 @@ const animedetails = ({ anime }) => {
         </div>
       </div>
       <br />
-     
-        <section>
-                  <Footer />
 
-        </section>
+      <section>
+        <Footer />
+      </section>
     </>
   );
 };
@@ -178,6 +203,7 @@ export async function getServerSideProps({ params }) {
     `http://localhost:5050/api/search/anime?query=${id}`
   );
   const data = response.data.data.data[0];
+  data.studios.map((item)=>{console.log(item.name)})
   const anime = [
     data.title,
     data.images.jpg.image_url,
@@ -185,9 +211,13 @@ export async function getServerSideProps({ params }) {
     data.episodes,
     data.genres,
     data.synopsis,
-    data.rank
+    data.rank,
+    data.Type,
+    data.status,
+    data.studios[0].name,
+    data.season,
+    data.year
   ];
-  console.log("data is" + response);
   return {
     props: {
       key: id,

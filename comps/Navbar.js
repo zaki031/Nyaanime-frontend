@@ -49,7 +49,10 @@ const Navbar = () => {
             >
               <Image className="nav-pfp" src={pfp} alt="pfp"></Image>
             </div>
+
           </div>
+          <a className="menu"><i class="uil uil-bars"></i></a>
+
         </nav>
         <div
           className={`dropdown-menu ${open ? "active" : "inactive"}`}
@@ -67,6 +70,8 @@ const Navbar = () => {
             <a href="">تسجيل الخروج</a>
           </div>
         </div>
+                  <a className="menu"><i class="uil uil-bars"></i></a>
+
       </div>
     )
   );
