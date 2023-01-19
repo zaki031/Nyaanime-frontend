@@ -49,7 +49,7 @@ const search = ({ anime }) => {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 2,
+            slidesToScroll: 1,
           },
         },
       ],
@@ -66,6 +66,20 @@ const search = ({ anime }) => {
       ></link>
             <Navbar/>
             <br /><br /><br />
+            <div className="input-container">
+       
+       <input
+         type="text"
+         className="phone-input"
+         value={search}
+         onChange={(event) => SetSearch(event.target.value)}
+         placeholder="ابحث عن الانمي اللذي تود مشاهدته"
+       />
+           <a className="phone-btn" href={"/search/" + search}>
+             البحث
+           </a>
+  
+     </div>
 
             <div className="search-container">
               <h1><span>{'"'+id +'"'}</span> : النتائج الموجودة لـ</h1>
