@@ -482,6 +482,37 @@ hr{
   justify-items: center;
   align-items: center;
 }
+.down_links a{
+  background-color:#A888FF;
+  border-radius: 8px;
+  color: #1b1c21;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-decoration: none;
+
+}
+.down_links a:hover{
+  padding: 12px;
+}
+.dowlinks{
+  display: grid;
+  grid-column-start: auto;
+  grid-column-end: auto ;
+
+ 
+  gap: 20px;
+}
+.down_links h1{
+  color: #a888ff;
+}
+.down_links{
+  background-color:rgb(34, 36, 43);
+  border-radius: 8px;
+  margin: 20px;
+  height: 100vh;
+  text-align: center;
+}
 .scnd h3,
 .fst h3{
   margin-top: 15px;

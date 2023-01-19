@@ -71,7 +71,7 @@ const watch = ({ info }) => {
                 {" "}
                 <i class="uil uil-arrow-left"></i> الحلقة السابقة{" "}
               </a>
-              <a href="">
+              <a href={`/download/${id}`}>
                 {" "}
                 <i class="uil uil-arrow-to-bottom"></i> حمّل الحلقة{" "}
               </a>
