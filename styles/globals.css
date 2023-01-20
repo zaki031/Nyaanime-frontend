@@ -431,6 +431,7 @@ hr{
   background-color:rgb(34, 36, 43);
   
   border-radius: 8px;
+  display: flex;
   height: 150vh;
   
 }
@@ -742,6 +743,43 @@ iframe{
 }
 
 @media(max-width : 450px){
+
+  .txt{
+    text-align: center;
+  }
+  .anime-details-container{
+    padding: 10px;
+    height: 100%;
+  }
+  .genres{
+    display: none;
+  }
+  .anime-details-container{
+    width: 100%;
+  }
+  .txt p{
+    font-size: 30px;
+    display: none;
+  }
+  .txt .more-info{
+    
+  }
+
+  .fst{display: block;text-align: center;}
+  .scnd{
+    display: block;
+  }
+  .eps{
+    place-self: center
+    ;
+    justify-self: center;
+    padding: 0;
+    width: 200px;
+  }
+
+  .animeInfo{
+    display: block;
+  }
   iframe{
     width: 400px;
   }
