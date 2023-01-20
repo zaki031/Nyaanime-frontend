@@ -12,26 +12,26 @@ import ReactPlayer from "react-player";
 import Head from "next/head";
 
 const animedetails = ({ anime }) => {
-  const [season, setSeason] = useState([])
-  const [status, setStatus] = useState([])
+  const [season, setSeason] = useState([]);
+  const [status, setStatus] = useState([]);
   useEffect(() => {
-    if(anime[10]=='fall'){
-      setSeason(' خريف')
+    if (anime[10] == "fall") {
+      setSeason(" خريف");
     }
-    if(anime[10]=='summer'){
-      setSeason(' صيف')
+    if (anime[10] == "summer") {
+      setSeason(" صيف");
     }
-    if(anime[10]=='spring'){
-      setSeason(' ربيع')
+    if (anime[10] == "spring") {
+      setSeason(" ربيع");
     }
-    if(anime[10]=='winter'){
-      setSeason(' شتاء')
+    if (anime[10] == "winter") {
+      setSeason(" شتاء");
     }
-    if(anime[8]=='Finished Airing'){
-      setStatus('منتهي')
+    if (anime[8] == "Finished Airing") {
+      setStatus("منتهي");
     }
-    if(anime[8] == 'Currently Airing'){
-      setStatus('مستمر')
+    if (anime[8] == "Currently Airing") {
+      setStatus("مستمر");
     }
     console.log("Data is " + anime);
     console.log(anime[4]);
@@ -107,6 +107,8 @@ const animedetails = ({ anime }) => {
         <div className="anime-details-container">
           <div className="animeInfo">
             <div className="pfp">
+              <h1 className="phone_title">{anime[0]}</h1>
+
               <Image
                 className="anime-banner"
                 alt={anime.title}
@@ -134,9 +136,11 @@ const animedetails = ({ anime }) => {
               <div className="more-info">
                 <div className="fst">
                   <div className="genres">
-                    {anime[4].map((item, index) => {
-                      return <a key={index}>{item.name}</a>;
-                    })}
+                    <div className="map">
+                      {anime[4].map((item, index) => {
+                        return <a key={index}>{item.name}</a>;
+                      })}
+                    </div>
                     <h3>: التصنيفات</h3>
                   </div>
                   <div className="rank">
@@ -153,7 +157,7 @@ const animedetails = ({ anime }) => {
                   </div>
                 </div>
                 <div className="scnd">
-                <div className="type">
+                  <div className="type">
                     <a>{anime[7]}</a>
                     <h3>: النوع</h3>
                   </div>
@@ -165,11 +169,10 @@ const animedetails = ({ anime }) => {
                     <a>{anime[9]}</a>
                     <h3>: الأستوديو</h3>
                   </div>
-                     <div className="episodes">
-                    <a>{season +'  '+ anime[11]}</a>
+                  <div className="episodes">
+                    <a>{season + "  " + anime[11]}</a>
                     <h3>: الموسم</h3>
                   </div>
-
                 </div>
                 <br />
                 <br />
@@ -219,7 +222,9 @@ export async function getServerSideProps({ params }) {
     `http://localhost:5050/api/search/anime?query=${id}`
   );
   const data = response.data.data.data[0];
-  data.studios.map((item)=>{console.log(item.name)})
+  data.studios.map((item) => {
+    console.log(item.name);
+  });
   const anime = [
     data.title,
     data.images.jpg.image_url,
@@ -232,7 +237,7 @@ export async function getServerSideProps({ params }) {
     data.status,
     data.studios[0].name,
     data.season,
-    data.year
+    data.year,
   ];
   return {
     props: {
