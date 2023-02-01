@@ -870,6 +870,9 @@ iframe{
   .foto{
     height: 500px;
   }
+  .foto:hover{
+    height: 500px;
+  }
   .phone-input{
     display: block;
   }
