@@ -9,6 +9,7 @@ const nextConfig = {
       protocol:'https',
       hostname:'animeblkom.net',
 
+      
       },
       {
         protocol:'https',
@@ -23,4 +24,9 @@ const nextConfig = {
 }
  
 
-module.exports = nextConfig
+module.exports = {
+  reactStrictMode:true,
+  experimental:{
+    forceSwcTransforms: true,
+  }
+}
