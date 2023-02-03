@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     /* Fetching data from the random anime api. */
     useEffect(() => {
-      axios.get("http://127.0.0.1:5050/api/random/anime").then((res) => {
+      axios.get("nya-backend.onrender.com/api/random/anime").then((res) => {
         SetRandomanime(res.data.data.data.title);
       });
     }, []),

@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Head from 'next/head'
 
 
@@ -19,7 +19,7 @@ const search = ({ anime }) => {
     anime.map((item)=>{
         console.log(item.title)
     })
-   
+    
 
     const settings = {
       dots: false,
@@ -141,7 +141,8 @@ export default search;
 export async function getServerSideProps({ params }) {
     const { id } = params;
     console.log(id);
-    const response = await axios.get(`nya-backend.onrender.com/api/search/anime?query=${id}`
+    const response = await axios.get(
+      `http://localhost:5050/api/search/anime?query=${id}`
     );
     const data = response.data.data.data;
     const anime = data
