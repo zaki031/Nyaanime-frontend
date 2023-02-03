@@ -102,13 +102,13 @@ export async function getServerSideProps({ params }) {
   // getting the id of the page then using it to fetch your data
   const { id } = params;
   const response = await axios.get(
-    `http://localhost:5050/api/watch/anime?${id}`
+    `https://nya-backend.onrender.com/api/watch/anime?${id}`
   );
   const link = response.data.data.watch_link;
   const episode = response.data.data.episode;
   const name = response.data.data.anime_name;
   const res = await axios.get(
-    `http://localhost:5050/api/search/anime?query=${name}`
+    `https://nya-backend.onrender.com//api/search/anime?query=${name}`
   );
   const eps = res.data.data.data[0].episodes;
   const info = [link, episode, name, eps];

@@ -217,7 +217,7 @@ export async function getServerSideProps({ params }) {
   const { id } = params;
   console.log(id);
   const response = await axios.get(
-    `http://localhost:5050/api/search/anime?query=${id}`
+    `https://nya-backend.onrender.com/api/search/anime?query=${id}`
   );
   const data = response.data.data.data[0];
   data.studios.map((item) => {

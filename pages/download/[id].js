@@ -47,7 +47,7 @@ export default download;
 export async function getServerSideProps({ params }) {
     // getting the id of the page then using it to fetch your data
     const { id } = params;
-    const response =  await axios.get(`http://localhost:5050/api/download/anime?${id}`.replaceAll(' ','-'));
+    const response =  await axios.get(`https://nya-backend.onrender.com/api/latest/anime/api/download/anime?${id}`.replaceAll(' ','-'));
    
     const servers = response.data.download_links
    

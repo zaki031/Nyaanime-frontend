@@ -29,18 +29,18 @@ export default function Home() {
 /* API requests */
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5050/api/top/anime").then((res) => {
+    axios.get("https://nya-backend.onrender.com/api/top/anime").then((res) => {
       if (res.data.data.data !== null) {
         SetTopanimes(res.data.data.data);
       }
     });
 
-    axios.get("http://127.0.0.1:5050/api/upcoming/anime").then((res) => {
+    axios.get("https://nya-backend.onrender.com/api/upcoming/anime").then((res) => {
       if (res.data.data.data !== null) {
         SetAnimes(res.data.data.data);
       }
     });
-    axios.get("http://127.0.0.1:5050/api/latest/anime").then((res) => {
+    axios.get("https://nya-backend.onrender.com//api/latest/anime").then((res) => {
       if (res.data.data !== null) {
         SetLatest(res.data.data);
         console.log(res.data.data[0]);

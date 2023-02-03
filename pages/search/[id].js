@@ -141,8 +141,7 @@ export default search;
 export async function getServerSideProps({ params }) {
     const { id } = params;
     console.log(id);
-    const response = await axios.get(
-      `http://localhost:5050/api/search/anime?query=${id}`
+    const response = await axios.get(`nya-backend.onrender.com/api/search/anime?query=${id}`
     );
     const data = response.data.data.data;
     const anime = data
