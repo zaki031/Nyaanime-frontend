@@ -3,7 +3,6 @@ import Navbar from "../../comps/Navbar";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { anime } from "../animes";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
