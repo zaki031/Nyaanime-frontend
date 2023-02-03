@@ -2,9 +2,11 @@ import Navbar from "../comps/Navbar"
 import lobanner from '../public/login-banner.png'
 import Image from 'next/image'
  
+
+ 
+
 const login = () => {
-    return ( 
-        <>
+    return ( <>
         <Navbar/>
         <br /><br />
         <div className="login-container">
@@ -43,8 +45,7 @@ const login = () => {
             </div>
           
         </div>
-        </>
-     );
+        </> );
 }
  
 export default login;

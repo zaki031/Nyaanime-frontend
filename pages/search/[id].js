@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import Footer from "../../comps/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from 'next/head'
 
 
@@ -19,6 +19,7 @@ const search = ({ anime }) => {
     anime.map((item)=>{
         console.log(item.title)
     })
+   
 
     const settings = {
       dots: false,
